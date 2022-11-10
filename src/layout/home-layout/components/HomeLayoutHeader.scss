@@ -1,0 +1,51 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    background-color: rgb(66,109,73);
+    .logo {
+        margin: auto 10px;
+    }
+    .logo a {
+        text-decoration: none;
+        
+        .logos{
+            width: 100px;
+            height: 100px;
+        }
+
+    }
+    .header-list {
+        margin: auto 10px;
+    }
+    .header-list a {
+        margin: auto 30px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        
+    }
+    .header-list input {
+        border-radius: 10px;
+        border: none;
+        margin: auto 10px;
+        width: 300px;
+        padding: 10px 20px;
+    }
+    .header-customer{
+        display: flex;
+        margin:  auto 10px;
+        .header-login {
+            margin:  auto 10px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .cart {
+            margin:  auto 10px;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+        }
+    }
+}
