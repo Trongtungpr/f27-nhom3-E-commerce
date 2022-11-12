@@ -6,6 +6,7 @@ import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginAction } from "../../../stores/slices";
+
 import "./LoginPage.scss";
 // import { ReactComponent as ReactLogo } from "../../../../svg/Lias.svg";
 
@@ -49,6 +50,7 @@ export const LoginPage = () => {
 
   return (
     <div  className="login-page">
+      .header
       <div className="login-header">
         <div className="logo">
           <a href="logo">
