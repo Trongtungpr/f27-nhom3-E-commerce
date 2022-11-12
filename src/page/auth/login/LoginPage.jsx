@@ -6,7 +6,7 @@ import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginAction } from "../../../stores/slices";
-import "./LoginPage.scss"
+import "./LoginPage.scss";
 // import { ReactComponent as ReactLogo } from "../../../../svg/Lias.svg";
 
 const emailRegex =
@@ -43,130 +43,89 @@ export const LoginPage = () => {
     return <Navigate to={"/"} />;
   }
 
-  const loginFormStyle = {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    padding: "0px 20px",
-  };
-
-  const loginPageContainer = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100vw",
-    height: "100vh",
-    backgroundImage:
-      'url("img/hand-painted-watercolor-background-with-sky-clouds-shape.jpg")',
-  };
-
-  const loginPageBox = {
-    boxShadow: "0 5px 10px 0 rgb(0 0 0 / 10%)",
-    borderRadius: "10px",
-    width: "390px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-    backgroundColor: "#DBE4EA",
-    "& .ant-btn": {
-      backgroundColor: "red",
-    },
-    padding: "0px, 20px",
-  };
-
-  const btnStyle = {
-    backgroundColor: "#AFD6EA",
-    borderColor: "#AFD6EA",
-    color: "black",
-  };
-
   const onLogin = (values) => {
     dispatch(loginAction(values));
   };
 
   return (
-    <div style={loginPageContainer} className="login-page">
+    <div  className="login-page">
       <div className="login-header">
-      <div className="logo">
-            <a href="logo">
-              <img
-                className="logos"
-                src={require("../../../assets/images/Plantiful Garden Logo.gif")}
-                alt=""
-              />
-            </a>
-          </div>
-          {/* <div className="header-list">
-            <input type="text" placeholder="Search..." />
-            <a href="">HOME</a>
-            <a href="">SHOP</a>
-            <a href="">ABOUT US</a>
-            <a href="">CONTACT</a>
-          </div> */}
-          </div>
-      <div style={loginPageBox}>
-        
-        <div>{/* <ReactLogo /> */}</div>
-        <Form
-          name="basic"
-          wrapperCol={{ span: 24 }}
-          onFinish={handleSubmit(onLogin, (err) => console.log(errors))}
-          onFinishFailed={() => {}}
-          autoComplete="off"
-          style={loginFormStyle}
-        >
-          <Controller
-            control={control}
-            name="email"
-            render={({ field: { onChange, value, name, ref } }) => (
-              <Form.Item
-                validateStatus={errors.email && "error"}
-                help={errors?.email?.message}
-                name={name}
-              >
-                <Input
-                  onChange={onChange}
-                  value={value}
-                  name={name}
-                  placeholder="Email"
-                  ref={ref}
-                />
-              </Form.Item>
-            )}
-          />
-          <Controller
-            control={control}
-            name="password"
-            render={({ field: { onChange, value, name, ref } }) => (
-              <Form.Item
-                validateStatus={errors.password && "error"}
-                // @ts-ignore
-                help={errors?.password?.message}
-                name={name}
-              >
-                <Input.Password
-                  onChange={onChange}
-                  value={value}
-                  name={name}
-                  placeholder="Password"
-                  ref={ref}
-                />
-              </Form.Item>
-            )}
-          />
-          <Form.Item>
-            <Button
-              style={btnStyle}
-              type="primary"
-              htmlType="submit"
-              shape="round"
-              // loading={userInfo.loading}
+        <div className="logo">
+          <a href="logo">
+            <img
+              className="logos"
+              src={require("../../../assets/images/Plantiful Garden Logo.gif")}
+              alt=""
+            />
+          </a>
+        </div>
+        <div >
+          <div>
+            <Form
+              name="basic"
+              wrapperCol={{ span: 24 }}
+              onFinish={handleSubmit(onLogin, (err) => console.log(errors))}
+              onFinishFailed={() => {}}
+              autoComplete="off"
+              className="basic"
             >
-              Login
-            </Button>
-          </Form.Item>
-        </Form>
+              <Controller
+                control={control}
+                name="email"
+                render={({ field: { onChange, value, name, ref } }) => (
+                  <Form.Item
+                    validateStatus={errors.email && "error"}
+                    help={errors?.email?.message}
+                    name={name}
+                    className="users-item"
+                  >
+                    <Input
+                      onChange={onChange}
+                      value={value}
+                      name={name}
+                      placeholder="Email"
+                      ref={ref}
+                      className="input-item"
+                    />
+                  </Form.Item>
+                )}
+              />
+              <Controller
+                control={control}
+                name="password"
+                render={({ field: { onChange, value, name, ref } }) => (
+                  <Form.Item
+                    validateStatus={errors.password && "error"}
+                    // @ts-ignore
+                    help={errors?.password?.message}
+                    name={name}
+                    className="password"
+                  >
+                    <Input.Password
+                      onChange={onChange}
+                      value={value}
+                      name={name}
+                      placeholder="Password"
+                      ref={ref}
+                      className="pass-item"
+                    />
+                  </Form.Item>
+                )}
+              />
+              <Form.Item>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  shape="round"
+                  // loading={userInfo.loading}
+                  className="btton"
+                >
+                  Login
+                </Button>
+              </Form.Item>
+            </Form>
+          </div>
+        </div>
       </div>
     </div>
   );
