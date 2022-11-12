@@ -87,7 +87,26 @@ export const LoginPage = () => {
 
   return (
     <div style={loginPageContainer} className="login-page">
+      <div className="login-header">
+      <div className="logo">
+            <a href="logo">
+              <img
+                className="logos"
+                src={require("../../../assets/images/Plantiful Garden Logo.gif")}
+                alt=""
+              />
+            </a>
+          </div>
+          {/* <div className="header-list">
+            <input type="text" placeholder="Search..." />
+            <a href="">HOME</a>
+            <a href="">SHOP</a>
+            <a href="">ABOUT US</a>
+            <a href="">CONTACT</a>
+          </div> */}
+          </div>
       <div style={loginPageBox}>
+        
         <div>{/* <ReactLogo /> */}</div>
         <Form
           name="basic"
