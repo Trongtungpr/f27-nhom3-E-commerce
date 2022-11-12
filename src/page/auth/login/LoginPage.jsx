@@ -50,7 +50,18 @@ export const LoginPage = () => {
 
   return (
     <div  className="login-page">
-      .header
+      <div className="header-login-page">
+      <div className="logo-header-login-page">
+            <a href="logo">
+              <img
+                className="logo-login"
+                src={require("../../../assets/images/Plantiful Garden Logo.gif")}
+                alt=""
+              />
+            </a>
+            
+          </div>
+      </div>
       <div className="login-header">
         <div className="logo">
           <a href="logo">
@@ -123,6 +134,17 @@ export const LoginPage = () => {
                   className="btton"
                 >
                   Login
+                </Button>
+              </Form.Item>
+              <Form.Item>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  shape="round"
+                  // loading={userInfo.loading}
+                  className="btton"
+                >
+                  Create Accoount
                 </Button>
               </Form.Item>
             </Form>

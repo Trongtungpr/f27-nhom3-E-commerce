@@ -1,35 +1,49 @@
-.logos{
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 30px auto;
+.header-login-page {
+  width: auto;
+  height: 110px;
+  background-color:  rgb(66,109,73);
+  text-align: start;
+  padding: 10px 20px;
+//   justify-self: start;
+  .logo-header-login-page {
+
+    .logo-login {
+      width: 110px;
+    }
+  }
 }
-.basic{
-    .users-item{
+.logos {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 30px auto;
+}
+.basic {
+  .users-item {
+    margin: 10px auto;
+    padding: 7px 30px;
+    .input-item {
       margin: 10px auto;
       padding: 7px 30px;
-      .input-item{
-        margin: 10px auto;
-      padding: 7px 30px;
       border-radius: 7px;
-      }
     }
-    
-    .pass-item{
-        margin: 10px auto;
-        padding: 7px 30px;
-        border-radius: 7px;
-    }
-}
-.btton{
-    color: white;
+  }
+
+  .pass-item {
     margin: 10px auto;
-    padding: 10px 20px;
+    padding: 7px 30px;
     border-radius: 7px;
-    font-weight: bold;
-    font-size: 16px;
-    background-color: rgb(66,109,73);
-    cursor: pointer;
-    border: none;
+  }
+}
+.btton {
+  color: white;
+  margin: 10px auto;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: rgb(66, 109, 73);
+  cursor: pointer;
+  border: none;
 }
