@@ -4,7 +4,7 @@
     width: 400px;
     margin: 20px auto;
     padding: 20px;
-    border: 1px solid rgb(73, 70, 70);
+    border: 2px solid rgb(8, 8, 8);
 }
 .header-login-page {
   width: auto;
@@ -26,35 +26,37 @@
   border-radius: 50%; 
 }
 .basic {
+    margin: auto;
   .users-item {
     margin: 8px auto;
     padding: 7px 30px;
     .input-item {
-      margin: 8px auto;
-      padding: 7px 30px;
-      border-radius: 7px;
+        padding: 7px 45px;
+        border-radius: 7px;
+        margin-right: -25px;
     }
   }
   .pass-item input {
-    margin: 8px 10px;
-    padding: 7px 30px;
+    padding: 7px 45px;
     border-radius: 7px;
+    margin-right: -38px;
   }
 }
 .button-item{
     display: flex;
     justify-content: center;
+    margin-right: -20px;
 }
 .btton {
-  color: white;
-  margin: 15px 10px;
-  padding: 8px 18px;
-  border-radius: 7px;
-  font-weight: bold;
-  font-size: 16px;
-  background-color: rgb(66, 109, 73);
-  cursor: pointer;
-  border: none;
+    color: white;
+    margin: 16px 3px;
+    padding: 8px 30px;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: rgb(66, 109, 73);
+    cursor: pointer;
+    border: none;
 }
 .title-login{
     font-size: 40px;
