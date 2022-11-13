@@ -1,14 +1,20 @@
 
 .form{
     background-color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 550px;
     margin: 20px auto;
     padding: 20px;
-    /* height: 600px; */
+    border: 2px solid black;
+    .title {
+        font-size: 28px;
+        font-weight: bold;
+        font-family: ui-serif;
+    }
     .form-body{
         text-align: left;
         padding: 20px 10px;
+        margin: auto 10px ;
         .form-body > *{
             padding: 5px;
         }
@@ -19,9 +25,21 @@
             width: 60%;
         }
     }
-    .footer{
+    .bt-register{
         text-align: center;
+        .btn {
+            color: white;
+            padding: 10px 202px;
+            border-radius: 7px;
+            font-weight: bold;
+            font-size: 14px;
+            background-color: rgb(66, 109, 73);
+            cursor: pointer;
+            border: none;
+            margin-right: 51px;
+        }
     }
+    
 }
 
 

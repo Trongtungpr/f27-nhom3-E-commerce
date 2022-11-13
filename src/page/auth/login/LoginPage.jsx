@@ -59,10 +59,10 @@ export const LoginPage = () => {
                 alt=""
               />
             </a>
-            
           </div>
       </div>
       <div className="login-header">
+      <div className="title-login">LOGIN </div>
         <div className="logo">
           <a href="logo">
             <img
@@ -125,6 +125,8 @@ export const LoginPage = () => {
                   </Form.Item>
                 )}
               />
+              <div className="button-item">
+             <div className="bt1">
               <Form.Item>
                 <Button
                   type="primary"
@@ -136,6 +138,8 @@ export const LoginPage = () => {
                   Login
                 </Button>
               </Form.Item>
+              </div>
+              <div className="bt2">
               <Form.Item>
                 <Button
                   type="primary"
@@ -147,6 +151,8 @@ export const LoginPage = () => {
                   Create Accoount
                 </Button>
               </Form.Item>
+              </div>
+              </div>
             </Form>
           </div>
         </div>

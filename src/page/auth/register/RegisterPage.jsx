@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import "./RegisterPage.scss";
 
-function RegistrationForm() {
+function RegisterPage() {
   const userInfo = useSelector((state) => state.user.userInfoState);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -34,10 +34,11 @@ function RegistrationForm() {
 
   return (
     <div className="form">
+        <div className="title">WELCOME TO REGISTER 3THL</div>
       <div className="form-body">
-        <div className="username">
+        <div className="username" style={{ margin: "20px auto" }}>
           <label className="form__label" for="firstName">
-            First Name: {" "}
+            First Name:{" "}
           </label>
           <input
             className="form__input"
@@ -48,9 +49,9 @@ function RegistrationForm() {
             placeholder="First Name"
           />
         </div>
-        <div className="lastname">
+        <div className="lastname" style={{ margin: "20px auto" }}>
           <label className="form__label" for="lastName">
-            Last Name: {" "}
+            Last Name:{" "}
           </label>
           <input
             type="text"
@@ -62,9 +63,9 @@ function RegistrationForm() {
             placeholder="LastName"
           />
         </div>
-        <div className="email">
+        <div className="email" style={{ margin: "20px auto" }}>
           <label className="form__label" for="email">
-            Email: {" "}
+            Email:{" "}
           </label>
           <input
             type="email"
@@ -75,9 +76,9 @@ function RegistrationForm() {
             placeholder="Email"
           />
         </div>
-        <div className="password">
+        <div className="password" style={{ margin: "20px auto" }}>
           <label className="form__label" for="password">
-            Password: {" "}
+            Password:{" "}
           </label>
           <input
             className="form__input"
@@ -88,9 +89,9 @@ function RegistrationForm() {
             placeholder="Password"
           />
         </div>
-        <div className="confirm-password">
+        <div className="confirm-password" style={{ margin: "20px auto" }}>
           <label className="form__label" for="confirmPassword">
-            Confirm Password: {" "}
+            Confirm Password:{" "}
           </label>
           <input
             className="form__input"
@@ -102,7 +103,7 @@ function RegistrationForm() {
           />
         </div>
       </div>
-      <div class="footer">
+      <div class="bt-register">
         <button type="submit" class="btn">
           Register
         </button>
@@ -110,4 +111,4 @@ function RegistrationForm() {
     </div>
   );
 }
-export default RegistrationForm;
+export default RegisterPage;
