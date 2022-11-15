@@ -1,5 +1,5 @@
 import "./ShopDrop.scss";
-import Dropdown from "react-bootstrap/Dropdown";
+
 function ShopDrop() {
   return (
     <div class="dropdown">

@@ -42,7 +42,7 @@ function HomeLayoutHeader() {
             <a href="">CONTACT</a>
           </div>
           <div className="header-customer">
-            {userInfo && <div>{userInfo.email}</div>}
+            {userInfo && <div className="user-logout">{userInfo.email}</div>}
             {userInfo === null ? (
               <div className="header-login" onClick={gotoLoginPage}>
                 LOGIN 

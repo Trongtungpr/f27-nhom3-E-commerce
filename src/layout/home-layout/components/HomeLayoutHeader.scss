@@ -1,15 +1,9 @@
-.HomeLayoutHeader{
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
 .header {
     display: flex;
     justify-content: space-around;
     height: 130px;
     width: 100%;
     background-color: rgb(66,109,73);
-    top: 0;
-    box-sizing: border-box;
     .logo {
         margin: auto 10px;
     }
@@ -41,7 +35,19 @@
     .header-customer{
         display: flex;
         margin:  auto 10px;
+        .user-logout{
+            margin:  auto 15px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
         .header-login {
+            margin:  auto 15px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .header-logout{
             margin:  auto 15px;
             color: white;
             cursor: pointer;
@@ -54,5 +60,4 @@
             cursor: pointer;
         }
     }
-}
 }
