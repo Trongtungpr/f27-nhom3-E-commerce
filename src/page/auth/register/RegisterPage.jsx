@@ -34,7 +34,7 @@ function RegisterPage() {
 
   return (
     <div className="form">
-        <div className="title">WELCOME TO REGISTER 3THL</div>
+      <div className="title">WELCOME TO REGISTER 3THL</div>
       <div className="form-body">
         <div className="username" style={{ margin: "20px auto" }}>
           <label className="form__label" for="firstName">

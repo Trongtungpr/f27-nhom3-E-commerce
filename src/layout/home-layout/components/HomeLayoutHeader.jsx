@@ -4,6 +4,7 @@ import { ROUTERS } from "../../../const";
 import { logoutAction } from "../../../stores/slices";
 import { FaShoppingCart } from "react-icons/fa";
 import "./HomeLayoutHeader.scss";
+import ShopDrop from "../../../components/shop/ShopDrop";
 
 function HomeLayoutHeader() {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ function HomeLayoutHeader() {
           <div className="header-list">
             <input type="text" placeholder="Search..." />
             <a href="">HOME</a>
-            <a href="">SHOP</a>
+           <a href="" > <ShopDrop/></a>
             <a href="">ABOUT US</a>
             <a href="">CONTACT</a>
           </div>
@@ -45,7 +46,7 @@ function HomeLayoutHeader() {
                 LOGIN 
               </div>
             ) : (
-              <button onClick={onLogout}>Logout</button>
+              <div className="header-logout" onClick={onLogout}>Logout</div>
             )}
             <h3 className="cart">
               {" "}

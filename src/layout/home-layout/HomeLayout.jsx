@@ -8,8 +8,8 @@ function HomeLayout(props) {
     <div className="HomeLayout">
       <HomeLayoutHeader />
       <div className="home-content-wrapper">{props.content}</div>
-      {/* <div> <ProductItem/></div> */}
-      <div><RegisterPage/></div>
+      <div> <ProductItem/></div>
+      {/* <div><RegisterPage/></div> */}
       <div><Footer/></div>
     </div>
   );
