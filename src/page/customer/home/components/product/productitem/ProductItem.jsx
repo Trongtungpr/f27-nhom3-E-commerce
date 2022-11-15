@@ -1,22 +1,22 @@
 import "./ProductItem.scss";
 
 import { FaShoppingCart, FaHeart, FaAlignJustify } from "react-icons/fa";
-function ProductItem() {
+function ProductItem(props) {
   return (
     <div class="item">
       <div class="product">
         <img
           class="img-fluid"
-          src={require("../../assets/images/product-1.jpg")}
+          src={require(`${props.product.img}`)}
         />
       </div>
       <div class="text py-3 pb-4 px-3 text-center">
         <h3>
-          <a href="#">Bell Pepper</a>
+          <a href="#">{props.product.name}</a>
         </h3>
       </div>
       <div class="pricing">
-        <span class="mr-2 price-dc">$120.00</span>
+        <span class="mr-2 price-dc">{props.product.price}</span>
       </div>
       <div className="item-cart">
         <h3 className="cart">

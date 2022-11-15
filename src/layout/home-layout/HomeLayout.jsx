@@ -1,6 +1,7 @@
 import Footer from "../../components/footer/Footer";
-import ProductItem from "../../components/product/ProductItem";
-import RegisterPage from "../../page/auth/register/RegisterPage";
+import ProductList from "../../page/customer/home/components/product/productlist/ProductList";
+
+
 import HomeLayoutHeader from "./components/HomeLayoutHeader";
 
 function HomeLayout(props) {
@@ -8,7 +9,7 @@ function HomeLayout(props) {
     <div className="HomeLayout">
       <HomeLayoutHeader />
       <div className="home-content-wrapper">{props.content}</div>
-      <div> <ProductItem/></div>
+      {/* <div> <ProductItem/></div> */}
       {/* <div><RegisterPage/></div> */}
       <div><Footer/></div>
     </div>
