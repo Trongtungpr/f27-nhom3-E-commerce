@@ -4,6 +4,7 @@ import { ROUTERS } from "./const";
 import FullLayout from "./layout/full-layout/FullLayout";
 import HomeLayout from "./layout/home-layout/HomeLayout";
 import { LoginPage } from "./page/auth/login/LoginPage";
+import RegisterPage from "./page/auth/register/RegisterPage";
 import CartPage from "./page/customer/cart/CartPage";
 import HomePage from "./page/customer/home/HomePage";
 import { ProtectedRoute } from "./router/ProtectedRoute";
@@ -27,7 +28,10 @@ const App = () => {
             path={ROUTERS.login}
             element={<FullLayout content={<LoginPage />} />}
           />
-
+          <Route
+            path={ROUTERS.register}
+            element={<FullLayout content={<RegisterPage />} />}
+          />
           {/* Protected Router */}
           <Route
             path={ROUTERS.cart}

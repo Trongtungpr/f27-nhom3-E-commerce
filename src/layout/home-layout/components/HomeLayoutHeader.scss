@@ -35,12 +35,22 @@
     .header-customer{
         display: flex;
         margin:  auto 10px;
+        align-items: center;
+        color: white;
+        font-weight: bold;
         .header-login {
             margin:  auto 10px;
             color: white;
             cursor: pointer;
             font-weight: bold;
         }
+        .header-logout{
+            margin:  auto 10px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
         .cart {
             margin:  auto 10px;
             color: white;

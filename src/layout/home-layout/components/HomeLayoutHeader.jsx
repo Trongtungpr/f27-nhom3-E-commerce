@@ -18,6 +18,8 @@ function HomeLayoutHeader() {
     dispatch(logoutAction());
   };
 
+  
+
   return (
     <div className="HomeLayoutHeader">
       <div className="contaier-header">
@@ -45,7 +47,7 @@ function HomeLayoutHeader() {
                 LOGIN 
               </div>
             ) : (
-              <button onClick={onLogout}>Logout</button>
+              <div className="header-logout" onClick={onLogout}>Logout</div>
             )}
             <h3 className="cart">
               {" "}
