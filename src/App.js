@@ -6,6 +6,7 @@ import HomeLayout from "./layout/home-layout/HomeLayout";
 import { LoginPage } from "./page/auth/login/LoginPage";
 import RegisterPage from "./page/auth/register/RegisterPage";
 import CartPage from "./page/customer/cart/CartPage";
+import ProductList from "./page/customer/home/components/product/productlist/ProductList";
 import HomePage from "./page/customer/home/HomePage";
 import { ProtectedRoute } from "./router/ProtectedRoute";
 
@@ -21,8 +22,8 @@ const App = () => {
             element={<HomeLayout content={<HomePage />} />}
           />
           <Route
-            path={ROUTERS.productDetail}
-            element={<HomeLayout content={<div></div>} />}
+            path={ROUTERS.product}
+            element={<HomeLayout content={<ProductList />} />}
           />
           <Route
             path={ROUTERS.login}
@@ -30,7 +31,7 @@ const App = () => {
           />
           <Route
             path={ROUTERS.register}
-            element={<FullLayout content={<RegisterPage />} />}
+            element={<LoginPage content={<RegisterPage/>}  />}
           />
           {/* Protected Router */}
           <Route

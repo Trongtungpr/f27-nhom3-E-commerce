@@ -5,15 +5,10 @@ function ProductItem(props) {
   return (
     <div class="item">
       <div class="product">
-        <img
-          class="img-fluid"
-          src={require(`${props.product.img}`)}
-        />
+        <img class="img-fluid" src={props.product.img} />
       </div>
-      <div class="text py-3 pb-4 px-3 text-center">
-        <h3>
+      <div class="text py-3 pb-4 px-3 text-center">     
           <a href="#">{props.product.name}</a>
-        </h3>
       </div>
       <div class="pricing">
         <span class="mr-2 price-dc">{props.product.price}</span>

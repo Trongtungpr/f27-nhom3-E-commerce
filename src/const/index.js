@@ -2,5 +2,6 @@ export const ROUTERS = {
   login: "/login",
   home: "/",
   cart: "/cart",
-  productDetail: "/product-detail",
+  product: "/product",
+  register:"/register"
 };

@@ -1,14 +1,14 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginAction } from "../../../stores/slices";
-
 import "./LoginPage.scss";
-// import { ReactComponent as ReactLogo } from "../../../../svg/Lias.svg";
+import { ROUTERS } from "../../../const";
+
 
 const emailRegex =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -22,6 +22,10 @@ const schema = yup
       .required("Password is required"),
   })
   .required();
+ 
+  const handleCreateAccount = (e) =>{
+    
+};
 
 export const LoginPage = () => {
   const userInfo = useSelector((state) => state.user.userInfoState);
@@ -43,26 +47,26 @@ export const LoginPage = () => {
   if (userInfo.data) {
     return <Navigate to={"/"} />;
   }
-
   const onLogin = (values) => {
     dispatch(loginAction(values));
   };
 
+ 
   return (
-    <div  className="login-page">
+    <div className="login-page">
       <div className="header-login-page">
-      <div className="logo-header-login-page">
-            <a href="logo">
-              <img
-                className="logo-login"
-                src={require("../../../assets/images/Plantiful Garden Logo.gif")}
-                alt=""
-              />
-            </a>
-          </div>
+        <div className="logo-header-login-page">
+          <a href="logo">
+            <img
+              className="logo-login"
+              src={require("../../../assets/images/Plantiful Garden Logo.gif")}
+              alt=""
+            />
+          </a>
+        </div>
       </div>
       <div className="login-header">
-      <div className="title-login">LOGIN </div>
+        <div className="title-login">LOGIN </div>
         <div className="logo">
           <a href="logo">
             <img
@@ -72,7 +76,7 @@ export const LoginPage = () => {
             />
           </a>
         </div>
-        <div >
+        <div>
           <div>
             <Form
               name="basic"
@@ -126,32 +130,33 @@ export const LoginPage = () => {
                 )}
               />
               <div className="button-item">
-             <div className="bt1">
-              <Form.Item>
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  shape="round"
-                  // loading={userInfo.loading}
-                  className="btton"
-                >
-                  Login
-                </Button>
-              </Form.Item>
-              </div>
-              <div className="bt2">
-              <Form.Item>
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  shape="round"
-                  // loading={userInfo.loading}
-                  className="btton"
-                >
-                  Create Accoount
-                </Button>
-              </Form.Item>
-              </div>
+                <div className="bt1">
+                  <Form.Item>
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      shape="round"
+                      // loading={userInfo.loading}
+                      className="btton"
+                    >
+                      Login
+                    </Button>
+                  </Form.Item>
+                </div>
+                <div className="bt2">
+                  <Form.Item>
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      shape="round"
+                      // loading={userInfo.loading}
+                      className="btton"
+                      onClick={handleCreateAccount}
+                    >
+                      Create Accoount
+                    </Button>
+                  </Form.Item>
+                </div>
               </div>
             </Form>
           </div>
