@@ -15,18 +15,18 @@ const initialState = {
   },
 };
 
-const userSlice = createSlice({
+const registerSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    loginAction(state, action) {
+    registerAction(state, action) {
       localStorage.removeItem(USER_INFO_KEY);
       state.userInfoState = {
         ...state.userInfoState,
         loading: true,
       };
     },
-    loginActionSuccess(state, action) {
+    registerActionSuccess(state, action) {
       const userInfoResponse = action.payload;
       localStorage.setItem(USER_INFO_KEY, JSON.stringify(userInfoResponse));
       state.userInfoState = {
@@ -35,7 +35,7 @@ const userSlice = createSlice({
         data: userInfoResponse,
       };
     },
-    loginActionFailed(state, action) {
+    registerActionFailed(state, action) {
       notification.error({
         message: `Login Failed: ${action.payload}`,
       });
@@ -46,29 +46,12 @@ const userSlice = createSlice({
         error: action.payload,
       };
     },
-    // registerAction(state, action) {
-
-    // },
-    // registerActionSuccess(state, action) {
-    // },
-    // registerActionFailed(state, action) {
-    // },
-    logoutAction(state, action) {
-      localStorage.removeItem(USER_INFO_KEY);
-      state.userInfoState = {
-        ...state.userInfoState,
-        loading: false,
-        data: null,
-      };
-    },
   },
 });
 
 export const {
-  loginAction,
-  loginActionSuccess,
-  loginActionFailed,
-  // registerAction, registerActionSuccess, registerActionFailed,
-  logoutAction,
-} = userSlice.actions;
-export const userReducer = userSlice.reducer;
+   registerAction, 
+   registerActionSuccess, 
+   registerActionFailed,
+} = registerSlice.actions;
+export const registerReducer = registerSlice.reducer;

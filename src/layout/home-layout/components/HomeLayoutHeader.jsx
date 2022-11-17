@@ -4,7 +4,7 @@ import { ROUTERS } from "../../../const";
 import { logoutAction } from "../../../stores/slices";
 import { FaShoppingCart } from "react-icons/fa";
 import "./HomeLayoutHeader.scss";
-import ShopDrop from "../../../components/shop/ShopDrop";
+import ShopDrop from "../../../components/shop/ShopPage";
 
 function HomeLayoutHeader() {
   const navigate = useNavigate();

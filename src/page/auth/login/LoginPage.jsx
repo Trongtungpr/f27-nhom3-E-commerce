@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginAction } from "../../../stores/slices";
 import "./LoginPage.scss";
 import { ROUTERS } from "../../../const";
+import { registerAction } from "../../../stores/slices/register.slice";
 
 
 const emailRegex =
@@ -23,10 +24,6 @@ const schema = yup
   })
   .required();
  
-  const handleCreateAccount = (e) =>{
-    
-};
-
 export const LoginPage = () => {
   const userInfo = useSelector((state) => state.user.userInfoState);
   const {
@@ -51,7 +48,6 @@ export const LoginPage = () => {
     dispatch(loginAction(values));
   };
 
- 
   return (
     <div className="login-page">
       <div className="header-login-page">
@@ -145,13 +141,12 @@ export const LoginPage = () => {
                 </div>
                 <div className="bt2">
                   <Form.Item>
-                    <Button
+                    <Button to ="/register"
                       type="primary"
                       htmlType="submit"
                       shape="round"
                       // loading={userInfo.loading}
                       className="btton"
-                      onClick={handleCreateAccount}
                     >
                       Create Accoount
                     </Button>
