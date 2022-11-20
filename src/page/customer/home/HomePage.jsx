@@ -7,7 +7,6 @@ function HomePage() {
   return <div>
     <HeaderSlider/>
     <ProductList/>
-    <RegisterPage/>
   </div>;
 }
 
