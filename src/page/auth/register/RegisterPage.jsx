@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { Value } from "sass";
+import { Route, useNavigate } from "react-router";
+import { registerAction } from "../../../stores/slices/register.slice";
 import "./RegisterPage.scss";
 
 function RegisterPage() {
   const dispatch = useDispatch();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
 
   const {
     register,
@@ -16,8 +18,11 @@ function RegisterPage() {
   } = useForm();
   const onSubmit = (data) => {
     if (password === confirmPassword) {
+        dispatch(registerAction(data))
     }
+    navigate(-1);
   };
+ 
   return (
     <div>
       <div className="login-page">
@@ -51,9 +56,9 @@ function RegisterPage() {
                 Email:{" "}
               </label>
               <input
+               {...register("Email")}
                 type="email"
                 className="form__input"
-                value=""
                 placeholder="Email"
               />
             </div>
@@ -62,10 +67,11 @@ function RegisterPage() {
                 Password:{" "}
               </label>
               <input
+               {...register("Password")}
                 className="form__input"
                 type="password"
-                value={password}
                 placeholder="Password"
+                onChange={(e)=> setPassword(e.target.value) }
               />
             </div>
             <div className="confirm-password" style={{ margin: "20px auto" }}>
@@ -73,15 +79,16 @@ function RegisterPage() {
                 Confirm Password:{" "}
               </label>
               <input
+               {...register("Confirm Password")}
                 className="form__input"
                 type="password"
-                value={confirmPassword}
                 placeholder="Confirm Password"
+                onChange={(e)=> setConfirmPassword(e.target.value) }
               />
             </div>
           </div>
           <div class="bt-register">
-            <button type="submit" class="btn">
+            <button type="submit" class="btn" onClick={onSubmit}>
               Register
             </button>
           </div>
