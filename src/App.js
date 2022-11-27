@@ -30,6 +30,10 @@ const App = () => {
             path={ROUTERS.login}
             element={<FullLayout content={<LoginPage />} />}
           />
+          <Route
+            path={ROUTERS.register}
+            element={<FullLayout content={<RegisterPage/>} />}
+          />
           {/* Protected Router */}
           <Route
             path={ROUTERS.cart}

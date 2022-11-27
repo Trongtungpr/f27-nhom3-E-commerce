@@ -8,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginAction } from "../../../stores/slices";
 import "./LoginPage.scss";
 import { ROUTERS } from "../../../const";
-import { registerAction } from "../../../stores/slices/register.slice";
+
 
 
 const emailRegex =
@@ -25,6 +25,7 @@ const schema = yup
   .required();
  
 export const LoginPage = () => {
+const navigate = useNavigate();
   const userInfo = useSelector((state) => state.user.userInfoState);
   const {
     register,
@@ -47,6 +48,10 @@ export const LoginPage = () => {
   const onLogin = (values) => {
     dispatch(loginAction(values));
   };
+
+  const onRegister = (e) =>{
+    navigate(ROUTERS.register);
+}
 
   return (
     <div className="login-page">
@@ -147,6 +152,7 @@ export const LoginPage = () => {
                       shape="round"
                       // loading={userInfo.loading}
                       className="btton"
+                      onClick={onRegister}
                     >
                       Create Accoount
                     </Button>

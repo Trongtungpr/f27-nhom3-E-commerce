@@ -1,4 +1,5 @@
 import { put, takeEvery, delay } from "redux-saga/effects";
+import { log } from "util";
 import { AuthAPI } from "../../api";
 import { ProductAPI } from "../../api/product.api";
 import {
@@ -10,6 +11,8 @@ import {
 function* getProducts(action) {
   try {
     const response = yield ProductAPI.getProducts();
+    
+    console.log(response);
 
     yield put(getProductsSuccess(response.data));
   } catch (e) {

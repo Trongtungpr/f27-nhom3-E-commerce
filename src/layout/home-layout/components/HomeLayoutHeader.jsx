@@ -19,15 +19,13 @@ function HomeLayoutHeader() {
   const userInfo = useSelector((state) => state.user.userInfoState.data);
   const dispatch = useDispatch();
 
-  const gotoLoginPage = () => {
+  const gotoLoginPage = (e) => {
     navigate(ROUTERS.login);
   };
 
-  const onLogout = () => {
+  const onLogout = (e) => {
     dispatch(logoutAction());
   };
-
-  
 
   return (
     <div className="HomeLayoutHeader">
@@ -45,7 +43,10 @@ function HomeLayoutHeader() {
           <div className="header-list">
             <input type="text" placeholder="Search..." />
             <a href="">HOME</a>
-           <a href="" > <ShopDrop/></a>
+            <a href="">
+              {" "}
+              <ShopDrop />
+            </a>
             <a href="">ABOUT US</a>
             <a href="">CONTACT</a>
           </div>
@@ -54,10 +55,12 @@ function HomeLayoutHeader() {
             {userInfo && <div className="user-logout">{userInfo.email}</div>}
             {userInfo === null ? (
               <div className="header-login" onClick={gotoLoginPage}>
-                LOGIN 
+                LOGIN
               </div>
             ) : (
-              <div className="header-logout" onClick={onLogout}>Logout</div>
+              <div className="header-logout" onClick={onLogout}>
+                Logout
+              </div>
             )}
             <h3 className="cart">
               {" "}
