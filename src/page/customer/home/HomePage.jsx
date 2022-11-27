@@ -7,7 +7,7 @@ function HomePage() {
   return <div>
     <HeaderSlider/>
     <ProductList/>
-    <RegisterPage/>
+    {/* <RegisterPage/> */}
   </div>;
 }
 

@@ -9,8 +9,10 @@ function HomeLayout(props) {
     <div className="HomeLayout">
       <HomeLayoutHeader />
       <div className="home-content-wrapper">{props.content}</div>
+      {/* <ProductList /> */}
       {/* <div> <ProductItem/></div> */}
       {/* <div><RegisterPage/></div> */}
+
       <div><Footer/></div>
     </div>
   );

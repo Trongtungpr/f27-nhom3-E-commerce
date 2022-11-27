@@ -1,0 +1,35 @@
+.site-layout-background {
+    background-color: #fff !important;
+}
+.ant-layout{
+    min-height: 100vh;
+}
+
+.ant-layout-header span.trigger svg {
+    width: 25px !important;
+    height: 25px !important;
+    margin: 10px !important;
+}
+.ant-avatar{
+    align-items: center;
+    color: rgba(0, 0, 0, 0.85);
+ 
+}
+.user{
+    display: flex;
+    align-items: center;
+    .user-logout {
+        margin:  auto 15px;
+        height: 64px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 64px;
+    cursor: pointer;
+    .header-login{
+        cursor: pointer;
+    }
+    .header-logout{
+        cursor: pointer;
+    }
+    
+    }
+}

@@ -3,6 +3,7 @@ import "./App.css";
 import { ROUTERS } from "./const";
 import FullLayout from "./layout/full-layout/FullLayout";
 import HomeLayout from "./layout/home-layout/HomeLayout";
+import DashboardPage from "./page/admin/DashboardPage";
 import { LoginPage } from "./page/auth/login/LoginPage";
 import RegisterPage from "./page/auth/register/RegisterPage";
 import CartPage from "./page/customer/cart/CartPage";
@@ -70,6 +71,15 @@ const App = () => {
           />
 
           {/* Admin */}
+
+          <Route
+            path={"/admin/dashboard"}
+            element={
+              <ProtectedRoute>
+                <DashboardPage />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

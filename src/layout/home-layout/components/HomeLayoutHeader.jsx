@@ -5,6 +5,14 @@ import { logoutAction } from "../../../stores/slices";
 import { FaShoppingCart } from "react-icons/fa";
 import "./HomeLayoutHeader.scss";
 import ShopDrop from "../../../components/shop/ShopPage";
+import { Avatar } from "antd";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  UploadOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+} from "@ant-design/icons";
 
 function HomeLayoutHeader() {
   const navigate = useNavigate();
@@ -42,6 +50,7 @@ function HomeLayoutHeader() {
             <a href="">CONTACT</a>
           </div>
           <div className="header-customer">
+          <Avatar className='ant-avatar' size='default' icon={<UserOutlined/>}></Avatar>
             {userInfo && <div className="user-logout">{userInfo.email}</div>}
             {userInfo === null ? (
               <div className="header-login" onClick={gotoLoginPage}>
