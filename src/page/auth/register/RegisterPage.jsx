@@ -1,24 +1,20 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { Route, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { registerAction } from "../../../stores/slices/register.slice";
 import "./RegisterPage.scss";
 
-function RegisterPage() {
+function RegisterPage(props) {
   const dispatch = useDispatch();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const {register} = useForm();
   const onSubmit = (data) => {
     if (password === confirmPassword) {
-        dispatch(registerAction(data))
+        dispatch(registerAction(data));
     }
     navigate(-1);
   };

@@ -14,7 +14,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 export default function Footer() {
   return (
     <MDBFooter bgColor="light" className="text-center text-lg-start text-muted">
-      <section className="">
+      <section className="footer">
         <MDBContainer className="text-center text-md-start mt-5">
           <MDBRow className="mt-3">
             <MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
