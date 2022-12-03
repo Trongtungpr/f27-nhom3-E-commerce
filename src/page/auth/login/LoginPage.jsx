@@ -1,4 +1,4 @@
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -9,23 +9,17 @@ import { loginAction } from "../../../stores/slices";
 import "./LoginPage.scss";
 import { ROUTERS } from "../../../const";
 
-
-
-const emailRegex =
-  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
 const schema = yup
   .object({
-    email: yup.string().required("Email is required").matches(emailRegex),
     password: yup
       .string()
       .min(8, "Password must be at least 8 character")
       .required("Password is required"),
   })
   .required();
- 
+
 export const LoginPage = () => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const userInfo = useSelector((state) => state.user.userInfoState);
   const {
     register,
@@ -49,15 +43,18 @@ const navigate = useNavigate();
     dispatch(loginAction(values));
   };
 
-  const onRegister = (e) =>{
+  const onRegister = (e) => {
     navigate(ROUTERS.register);
-}
+  };
+  const onHome = (e) => {
+    navigate(ROUTERS.home);
+  };
 
   return (
     <div className="login-page">
       <div className="header-login-page">
         <div className="logo-header-login-page">
-          <a href="logo">
+          <a href="/#" onClick={onHome}>
             <img
               className="logo-login"
               src={require("../../../assets/images/Plantiful Garden Logo.gif")}
@@ -69,7 +66,7 @@ const navigate = useNavigate();
       <div className="login-header">
         <div className="title-login">LOGIN </div>
         <div className="logo">
-          <a href="logo">
+          <a href="/#" onClick={onHome}>
             <img
               className="logos"
               src={require("../../../assets/images/Plantiful Garden Logo.gif")}
@@ -104,6 +101,7 @@ const navigate = useNavigate();
                       placeholder="Email"
                       ref={ref}
                       className="input-item"
+                      type="email"
                     />
                   </Form.Item>
                 )}
@@ -114,7 +112,6 @@ const navigate = useNavigate();
                 render={({ field: { onChange, value, name, ref } }) => (
                   <Form.Item
                     validateStatus={errors.password && "error"}
-                    // @ts-ignore
                     help={errors?.password?.message}
                     name={name}
                     className="password"
@@ -126,6 +123,7 @@ const navigate = useNavigate();
                       placeholder="Password"
                       ref={ref}
                       className="pass-item"
+                      required={{ required: true, minLength: 8 }}
                     />
                   </Form.Item>
                 )}
@@ -137,7 +135,6 @@ const navigate = useNavigate();
                       type="primary"
                       htmlType="submit"
                       shape="round"
-                      // loading={userInfo.loading}
                       className="btton"
                     >
                       Login
@@ -146,11 +143,11 @@ const navigate = useNavigate();
                 </div>
                 <div className="bt2">
                   <Form.Item>
-                    <Button to ="/register"
+                    <Button
+                      to="/register"
                       type="primary"
                       htmlType="submit"
                       shape="round"
-                      // loading={userInfo.loading}
                       className="btton"
                       onClick={onRegister}
                     >

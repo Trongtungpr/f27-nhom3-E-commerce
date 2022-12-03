@@ -1,4 +1,4 @@
-import { put, takeEvery, delay } from "redux-saga/effects";
+import { put, takeLatest } from "redux-saga/effects";
 import {
   registerAction,
   registerActionFailed,
@@ -9,7 +9,6 @@ import { AuthAPI } from "../../api";
 function* register(action) {
   try {
     const registerPayload = action.payload;
-    yield delay(1000);
     const response = yield AuthAPI.register({
       email: registerPayload.email,
       password: registerPayload.password,
@@ -23,5 +22,6 @@ function* register(action) {
 }
 
 export function* registerSaga() {
-  yield takeEvery(registerAction, register);
+  // Use takelatest to avoid spam api request
+  yield takeLatest(registerAction, register);
 }

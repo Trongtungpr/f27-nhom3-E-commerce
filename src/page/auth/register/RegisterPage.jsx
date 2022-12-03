@@ -1,30 +1,52 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { ROUTERS } from "../../../const";
 import { registerAction } from "../../../stores/slices/register.slice";
 import "./RegisterPage.scss";
 
 function RegisterPage(props) {
+  const userInfo = useSelector((state) => state.register.userInfoState);
+
   const dispatch = useDispatch();
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
-  const {register} = useForm();
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
+
   const onSubmit = (data) => {
-    if (password === confirmPassword) {
-        dispatch(registerAction(data));
+    const { name, email, password, confirmPassword } = data;
+
+    // Check if form have any empty input
+    const isValidatedForm = name || email || password || confirmPassword;
+
+    if (isValidatedForm && password === confirmPassword) {
+      dispatch(registerAction(data));
+
+      if (!userInfo?.error) {
+        console.error();
+      } else {
+        navigate(-1);
+      }
     }
-    navigate(-1);
   };
- 
+  const onHome = (e) => {
+    navigate(ROUTERS.home);
+  };
+
   return (
     <div>
       <div className="login-page">
         <div className="header-login-page">
           <div className="logo-header-login-page">
-            <a href="logo">
+            <a href="/#" onClick={onHome}>
               <img
                 className="logo-login"
                 src={require("../../../assets/images/Plantiful Garden Logo.gif")}
@@ -33,62 +55,64 @@ function RegisterPage(props) {
             </a>
           </div>
         </div>
-        <div className="form">
+        <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <div className="title">WELCOME TO REGISTER 3THL</div>
           <div className="form-body">
             <div className="username" style={{ margin: "20px auto" }}>
-              <label className="form__label" for="firstName">
+              <label className="form__label" htmlFor="firstName">
                 User Name:{" "}
               </label>
               <input
-              {...register("Name")}
+                {...register("name", { required: true })}
                 className="form__input"
                 type="text"
                 placeholder="Name"
               />
             </div>
             <div className="email" style={{ margin: "20px auto" }}>
-              <label className="form__label" for="email">
+              <label className="form__label" htmlFor="email">
                 Email:{" "}
               </label>
               <input
-               {...register("Email")}
+                {...register("email", { required: true })}
                 type="email"
                 className="form__input"
                 placeholder="Email"
               />
             </div>
             <div className="password" style={{ margin: "20px auto" }}>
-              <label className="form__label" for="password">
+              <label className="form__label" htmlFor="password">
                 Password:{" "}
               </label>
               <input
-               {...register("Password")}
+                {...register("password", { required: true, minLength: 8 })}
                 className="form__input"
                 type="password"
                 placeholder="Password"
-                onChange={(e)=> setPassword(e.target.value) }
               />
             </div>
             <div className="confirm-password" style={{ margin: "20px auto" }}>
-              <label className="form__label" for="confirmPassword">
+              <label className="form__label" htmlFor="confirmPassword">
                 Confirm Password:{" "}
               </label>
               <input
-               {...register("Confirm Password")}
+                {...register("confirmPassword", {
+                  required: true,
+                  minLength: 8,
+                })}
                 className="form__input"
                 type="password"
                 placeholder="Confirm Password"
-                onChange={(e)=> setConfirmPassword(e.target.value) }
               />
             </div>
+            <p className="notification">{userInfo?.error}</p>
           </div>
-          <div class="bt-register">
-            <button type="submit" class="btn" onClick={onSubmit}>
+          <div className="bt-register">
+            <button type="submit" className="btn">
               Register
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
